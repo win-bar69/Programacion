@@ -1,23 +1,25 @@
 var d = document.getElementById("dibujito");
 var lienzo = d.getContext("2d");
+var lineas =30;
+var l =0;
+var yi, xf;
 
-lienzo.beginPath();
-lienzo.strokeStyle ="green";
-lienzo.moveTo(10, 100);
-lienzo.lineTo(200, 250);
-lienzo.stroke();
-lienzo.closePath();
 
-lienzo.beginPath();
-lienzo.strokeStyle ="red";
-lienzo.moveTo(100, 100);
-lienzo.lineTo(200, 200);
-lienzo.stroke();
-lienzo.closePath();
+while (l < lineas)
+{
+  yi = 10 * l;
+  xf = 10 * (l + 1);
+  dibujarLinea ("pink", 0, yi, xf, 300);
+  console.log("linea " + 1);
+  l = l + 1;
+}
 
-lienzo.beginPath();
-lienzo.strokeStyle ="yellow";
-lienzo.moveTo(100, 200);
-lienzo.lineTo(100, 50);
-lienzo.stroke();
-lienzo.closePath();
+function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal)
+{
+  lienzo.beginPath();
+  lienzo.strokeStyle =color;
+  lienzo.moveTo(xinicial, yinicial);
+  lienzo.lineTo(xfinal, yfinal);
+  lienzo.stroke();
+  lienzo.closePath();
+}
